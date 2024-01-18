@@ -1,0 +1,6 @@
+<div class="row">
+  <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto">
+    <%= render 'books/form', form_title: 'Editing Book', form_value: @form_value, submit_text: 'Update Book' %>
+    <%= link_to 'Show', book_path(@book.id) %> | <%= link_to 'Back', books_path %>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<section>
+  <h2>Users</h2>
+  <table class="table">
+    <thead class="font-weight-bold">
+      <tr>
+        <td class="align-middle">Image</td>
+        <td class="align-middle">Name</td>
+        <td class="align-middle"></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% users.each do |user| %>
+      <tr>
+        <td class="align-middle">
+          <%= image_tag user.get_profile_image(80,80) %>
+        </td>
+        <td class="align-middle"><%= user.name %></td>
+        <td class="align-middle"><%= link_to 'Show', user_path(user.id) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

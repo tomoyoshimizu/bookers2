@@ -1,0 +1,23 @@
+<section>
+  <h2>Book detail</h2>
+  <div class="card">
+    <div class="card-body">
+      <h3 class="h4 card-title font-weight-bold"><%= @book.title %></h3>
+      <p class="card-text"><%= @book.body %></p>
+      <%= link_to user_path(@book.user.id), class: 'd-inline-flex' do %>
+        <%= image_tag @book.user.get_profile_image(30,30) %>
+        <span class="ml-1 align-middle"><%= @book.user.name %></span>
+      <% end %>
+    </div>
+    <% if @book.user == current_user %>
+    <div class="card-footer ">
+      <%= link_to edit_book_path(@book.id), class: 'btn btn-success' do %>
+        <i class="fa-solid fa-pen-to-square"></i><span>Edit</span>
+      <% end %>
+      <%= link_to book_path(@book.id), method: :delete, class: 'btn btn-danger' do %>
+        <i class="fa-solid fa-trash-can"></i><span>Destroy</span>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</section>

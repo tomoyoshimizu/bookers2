@@ -1,0 +1,12 @@
+<section class="jumbotron">
+  <h1 class="display-4">Welcome to Bookers !!</h1>
+  <p class="lead">In <i class="fa-solid fa-book"></i><strong>Bookers</strong>,</p>
+  <p class="lead">you can share and exchange your opinions, inpressions, and emotions about various books!</p>
+  <hr class="my-4">
+  <%= link_to new_user_session_path, class: 'btn btn-info' do %>
+    <i class="fa-solid fa-right-to-bracket"></i><span>Log in</span>
+  <% end %>
+  <%= link_to new_user_registration_path, class: 'btn btn-success' do %>
+    <i class="fa-solid fa-user-plus"></i><span>Sign up</span>
+  <% end %>
+</section>

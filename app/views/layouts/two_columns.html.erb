@@ -1,0 +1,10 @@
+<% content_for :content do %>
+  <aside class="col-md-3">
+    <%= render 'users/info', user: @side_bar[:user] %>
+    <%= render 'books/form', form_title: 'New book', form_value: @side_bar[:form_value], submit_text: 'Create Book' %>
+  </aside>
+  <main class="col-md-8 offset-md-1">
+    <%= yield %>
+  </main>
+<% end %>
+<%= render template: 'layouts/application' %>
