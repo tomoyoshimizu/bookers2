@@ -1,0 +1,11 @@
+<% if form_value.errors.any? %>
+<div class="alert alert-danger" role="alert">
+  <p class="alert-heading"><%= form_value.errors.count %> errors prohibited this obj from being saved:</p>
+  <hr>
+  <ul>
+  <% form_value.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+  </ul>
+</div>
+<% end %>

@@ -12,56 +12,25 @@
   </head>
 
   <body class="d-flex flex-column vh-100">
-    <header class="shadow-sm">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-          <%= link_to root_path, class: 'navbar-brand' do %>
-            <i class="fa-solid fa-book"></i><span>Bookers</span>
-          <% end %>
-          <% if @nav_links.present? %>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
-            <% @nav_links.each do |nav_link| %>
-              <li class="nav-item">
-                <%= link_to nav_link[:path], method: nav_link[:method], class: 'nav-link' do %>
-                  <% if nav_link[:icon].present? %>
-                  <i class="<%= nav_link[:icon] %>"></i>
-                  <% end %>
-                  <span><%= nav_link[:text] %></span>
-                <% end %>
-              </li>
-            <% end %>
-            </ul>
-          </div>
-          <% end %>
-        </div>
-      </nav>
+    <header>
+      <%= render "layouts/header" %>
     </header>
 
     <div class="container">
-      <% flash.each do |message_type, message| %>
+      <%= render "layouts/flash" %>
       <div class="row my-3">
-        <div class="col">
-          <div class="alert <%= @alert_type[message_type] %>" role="alert"><%= message %></div>
-        </div>
-      </div>
-      <% end %>
-      <div class="row my-3">
-        <% if content_for?(:content) %>
-          <%= yield(:content) %>
-        <% else %>
+      <% if content_for?(:content) %>
+        <%= yield(:content) %>
+      <% else %>
         <main class="col">
           <%= yield %>
         </main>
-        <% end %>
+      <% end %>
       </div>
     </div>
 
-    <footer class="d-flex justify-content-center">
-      <p>CopyRight Infratop.inc</p>
+    <footer>
+      <%= render "layouts/footer" %>
     </footer>
   </body>
 </html>

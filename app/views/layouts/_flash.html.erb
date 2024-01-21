@@ -1,0 +1,7 @@
+<% flash.each do |message_type, message| %>
+<div class="row my-3">
+  <div class="col">
+    <div class="alert <%= to_alert_type(message_type) %>" role="alert"><%= message %></div>
+  </div>
+</div>
+<% end %>

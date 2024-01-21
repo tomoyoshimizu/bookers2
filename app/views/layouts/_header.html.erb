@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+  <div class="container">
+
+    <%= link_to root_path, class: 'navbar-brand' do %>
+      <i class="fa-solid fa-book"></i><span>Bookers</span>
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
+      <% nav_links.each do |nav_link| %>
+        <li class="nav-item">
+          <%= link_to nav_link[:path], method: nav_link[:method], class: 'nav-link' do %>
+            <% if nav_link[:icon].present? %>
+            <i class="<%= nav_link[:icon] %>"></i>
+            <% end %>
+            <span><%= nav_link[:text] %></span>
+          <% end %>
+        </li>
+      <% end %>
+      </ul>
+    </div>
+
+  </div>
+</nav>
